@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메디소어 (Medisore) - AI 욕창 예방 및 자세 분석·체위 관리 플랫폼</title>
+  <meta name="description" content="요양기관, 간병인, 가족 보호자 누구나 쉽게 쓰는 AI 욕창 예방 및 체위 관리 플랫폼. 2시간 맞춤 체위 알림, MediaPipe 자세 분석 촬영 가이드, AI 욕창 단계 판별 & 맞춤 드레싱 처치 가이드, 7일 관리기록지 PDF 지원.">
+  <meta name="keywords" content="메디소어, Medisore, AI 욕창 예방, 욕창 단계 판별, 드레싱 처치 가이드, 체위 변경 알림, 자세 분석, 간병 관리, 요양원 욕창 관리, 7일 관리기록지, 신체선열 코칭">
+  <link rel="icon" type="image/png" href="assets/medisore-symbol.png">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="메디소어 (Medisore) - AI 욕창 예방 및 체위 관리 플랫폼">
+  <meta property="og:description" content="2시간 순환 체위 알림, AI 욕창 단계 판별 & 드레싱 가이드, MediaPipe 자세 분석 코칭, 7일 관리기록지 PDF">
+  <meta property="og:image" content="assets/medisore-logo.png">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Header & Navigation (1.5x Logo Size) -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo" aria-label="메디소어 홈">
+        <img src="assets/medisore-logo.png" alt="Medisore 메디소어 로고">
+        <span class="brand-badge">AI Care Platform</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="main-nav-menu">
+          <li><a href="#hero" class="nav-link active">홈</a></li>
+          <li><a href="#posture-coaching" class="nav-link">자세 분석·체위 코칭</a></li>
+          <li><a href="#wound-analysis" class="nav-link">욕창 단계 판별·처치 가이드</a></li>
+          <li><a href="#care-records" class="nav-link">돌봄 기록·인수인계</a></li>
+          <li><a href="#scanner-demo" class="nav-link">체험 시뮬레이터</a></li>
+          <li><a href="#features" class="nav-link">주요 기능</a></li>
+          <li><a href="#roadmap" class="nav-link">로드맵</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-primary open-pilot-modal" id="nav-cta-btn">
+          <span>무료 체험 및 도입 문의</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </button>
+        <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="모바일 메뉴 열기">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section (Split Layout with Real App Screenshot) -->
+    <section class="hero-section" id="hero">
+      <div class="hero-glow"></div>
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Hero Text -->
+          <div class="hero-text-col">
+            <div class="hero-badge">
+              <span class="chip">간병인·가족 맞춤형</span>
+              <span>스마트 AI 욕창 예방 및 체위 돌봄</span>
+            </div>
+            <h1 class="hero-title">
+              요양기관과 비전문 간병인을 위한<br><span class="highlight">AI 욕창 예방 및 스마트 돌봄 솔루션</span>
+            </h1>
+            <p class="hero-subtitle">
+              2시간 체위 알림부터 AI 자세 분석, 7일 관리기록지 자동 생성까지.<br>
+              누구나 쉽게 욕창 관리를 표준화하고 돌봄의 공백을 없앱니다.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#scanner-demo" class="btn btn-primary btn-lg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/>
+                </svg>
+                <span>AI 자세·체위 시뮬레이터 체험</span>
+              </a>
+              <button class="btn btn-outline btn-lg open-pilot-modal">
+                <span>요양기관·간병인 도입 문의</span>
+              </button>
+            </div>
+
+            <div class="hero-tags-row">
+              <div class="hero-tag-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>2시간 순환형 체위 알림</span>
+              </div>
+              <div class="hero-tag-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>MediaPipe 촬영 가이드 & 자세 코칭</span>
+              </div>
+              <div class="hero-tag-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>AI 욕창 Stage 1~4 판별 & 처치 가이드</span>
+              </div>
+              <div class="hero-tag-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>7일 관리기록지 PDF 출력</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual: Real Service Screen Phone Mockup -->
+          <div class="hero-visual-col">
+            <div class="phone-mockup-wrapper">
+              <div class="phone-mockup-screen">
+                <img src="assets/app-posture-home.png" alt="메디소어 앱 메인 체위 추천 및 타이머 화면">
+              </div>
+            </div>
+
+            <!-- Floating Badges -->
+            <div class="floating-badge badge-top">
+              <div class="floating-badge-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="floating-badge-text">
+                <strong>다음 체위 변경</strong>
+                <span>01:43:50 후 (바로 누움)</span>
+              </div>
+            </div>
+
+            <div class="floating-badge badge-bottom">
+              <div class="floating-badge-icon" style="background: var(--accent-emerald-light); color: var(--accent-emerald);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="floating-badge-text">
+                <strong>AI 사진 검증 완료</strong>
+                <span>신체선열 정상 정렬 (30° 측위)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 50:50 Split Showcase 1: 자세 분석 & 체위 코칭 (Posture 1, 2) -->
+    <section class="showcase-section" id="posture-coaching">
+      <div class="container">
+        <div class="showcase-split-grid">
+          <div class="showcase-text-col">
+            <div class="section-badge">
+              <span class="dot"></span>
+              <span>① AI Pose & Body Alignment</span>
+            </div>
+            <h3>MediaPipe 기반 관절 분석으로<br>완벽한 체위 변경을 코칭합니다</h3>
+            <p>
+              단순히 시간을 알려주는 것에 그치지 않습니다. 스마트폰 카메라로 환자의 자세를 촬영하면, 
+              <strong>MediaPipe AI 관절 좌표 추정 알고리즘</strong>이 어깨와 골반의 기울기 각도를 측정하여 욕창 예방에 가장 이상적인 <strong>30° 측위 자세</strong>를 정확히 안내합니다.
+            </p>
+
+            <ul class="showcase-feature-list">
+              <li class="showcase-feature-item">
+                <div class="showcase-feature-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 14 14"/>
+                  </svg>
+                </div>
+                <div class="showcase-feature-content">
+                  <strong>2시간 순환형 체위 스케줄러 (왼쪽 ⇄ 오른쪽 ⇄ 바로 누움)</strong>
+                  <span>설정한 주기(2시간 / 2.5시간 / 3시간)에 맞춰 다음 추천 자세를 자동으로 푸시 알림합니다.</span>
+                </div>
+              </li>
+
+              <li class="showcase-feature-item">
+                <div class="showcase-feature-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                </div>
+                <div class="showcase-feature-content">
+                  <strong>촬영 가이드 & 신체선열 자동 감지</strong>
+                  <span>머리 위치, 침대 수평, 팔 위치 등 올바른 촬영 기준을 안내하고 체중 편중을 실시간 교정합니다.</span>
+                </div>
+              </li>
+
+              <li class="showcase-feature-item">
+                <div class="showcase-feature-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <div class="showcase-feature-content">
+                  <strong>원터치 '체위 변경 완료' 및 알림 관리</strong>
+                  <span>바쁜 간병 중에도 탭 한 번으로 변경 상태를 기록하고 15분 후 다시 알림 기능도 제공합니다.</span>
+                </div>
+              </li>
+            </ul>
+
+            <button class="btn btn-primary open-pilot-modal">체위 코칭 솔루션 도입 문의</button>
+          </div>
+
+          <!-- Dual Phone Mockup: Posture 1 (Shooting Guide & Analysis) & Posture 2 (Alert & Verification) -->
+          <div class="showcase-img-col">
+            <div class="showcase-dual-phones">
+              <!-- Phone 1: Posture 1 (Shooting Guide & Pose Estimation) -->
+              <div class="dual-phone-item">
+                <div class="dual-phone-tag">자세 분석 촬영 가이드</div>
+                <div class="phone-mockup-screen">
+                  <img src="assets/app-posture-1.png" alt="자세 분석 및 코칭 촬영 가이드 화면">
+                </div>
+              </div>
+
+              <!-- Phone 2: Posture 2 (Alert & Verification Popup) -->
+              <div class="dual-phone-item">
+                <div class="dual-phone-tag">체위 알림 & 정렬 코칭</div>
+                <div class="phone-mockup-screen">
+                  <img src="assets/app-posture-2.png" alt="체위 변경 시간 알림 및 코칭 팝업 화면">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 50:50 Split Showcase 2: AI 욕창 단계 판별 및 처치 가이드 (Wound 2, Wound 3) -->
+    <section class="showcase-section alt-bg" id="wound-analysis">
+      <div class="container">
+        <div class="showcase-split-grid reversed">
+          <div class="showcase-text-col">
+            <div class="section-badge">
+              <span class="dot"></span>
+              <span>② AI Wound Staging & Dressing Guide</span>
+            </div>
+            <h3>사진 한 장으로 끝나는 욕창 단계 판별과<br>환자 맞춤형 드레싱 처치 가이드</h3>
+            <p>
+              비전문 간병인과 가족 보호자도 어려움 없이 환부 사진을 스마트폰으로 촬영하면, 
+              <strong>AI 비전 엔진이 Stage 1부터 Stage 4까지 상처 단계를 즉시 자동 분류</strong>합니다. 
+              또한 <strong>처치 가이드 탭</strong>으로 이동하면 환부 상태에 맞는 <strong>적합한 드레싱 재료(칼슘 알지네이트, 멸균 생리식염수 등)와 최저가 구매, 영상 가이드</strong>를 알기 쉽게 제공합니다.
+            </p>
+
+            <ul class="showcase-feature-list">
+              <li class="showcase-feature-item">
+                <div class="showcase-feature-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                </div>
+                <div class="showcase-feature-content">
+                  <strong>스마트폰 촬영 기반 Stage 1~4 단계 자동 판별</strong>
+                  <span>피부 발적(1단계)부터 진피 손상(2단계), 피하지방 노출(3단계), 근육 노출(4단계)까지 정밀 판독합니다.</span>
+                </div>
+              </li>
+
+              <li class="showcase-feature-item">
+                <div class="showcase-feature-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                  </svg>
+                </div>
+                <div class="showcase-feature-content">
+                  <strong>처치 가이드 탭: 맞춤 드레싱 준비물 & 세척 지침</strong>
+                  <span>삼출물이 많은 깊은 상처 흡수용 '칼슘 알지네이트 드레싱' 및 세척용 멸균 생리식염수 가이드를 안내합니다.</span>
+                </div>
+              </li>
+
+              <li class="showcase-feature-item">
+                <div class="showcase-feature-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="5 3 19 12 5 21 5 3"/>
+                  </svg>
+                </div>
+                <div class="showcase-feature-content">
+                  <strong>영상 가이드 보기 & 드레싱 재료 최저가 구매 연동</strong>
+                  <span>초보 간병인도 영상을 보며 따라 할 수 있고, 필요한 의료용 드레싱 소모품을 손쉽게 주문할 수 있습니다.</span>
+                </div>
+              </li>
+            </ul>
+
+            <button class="btn btn-primary open-pilot-modal">상처 판별 및 처치 가이드 신청</button>
+          </div>
+
+          <!-- Dual Phone Mockup: Wound 2 (Photo Upload AI) & Wound 3 (Treatment Guide Tab) -->
+          <div class="showcase-img-col">
+            <div class="showcase-dual-phones">
+              <!-- Phone 1: Photo Upload AI Staging with Mosaic -->
+              <div class="dual-phone-item">
+                <div class="dual-phone-tag">AI 단계 판별</div>
+                <div class="phone-mockup-screen">
+                  <img src="assets/app-wound-2.png" alt="상처 사진 업로드 및 AI 단계 판별 화면">
+                </div>
+              </div>
+
+              <!-- Phone 2: Wound 3 (Treatment Guide Tab with Dressing recommendation) -->
+              <div class="dual-phone-item">
+                <div class="dual-phone-tag">맞춤 처치 가이드</div>
+                <div class="phone-mockup-screen">
+                  <img src="assets/app-wound-3.png" alt="단계별 맞춤 처치 가이드 및 드레싱 추천 화면">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 50:50 Split Showcase 3: 돌봄 기록 & 인수인계 & 7일 PDF (Timeline 1, 2) -->
+    <section class="showcase-section" id="care-records">
+      <div class="container">
+        <div class="showcase-split-grid">
+          <div class="showcase-text-col">
+            <div class="section-badge">
+              <span class="dot"></span>
+              <span>③ Continuity of Care</span>
+            </div>
+            <h3>돌봄 공백 없는 인수인계와<br>7일 관리기록지 PDF 자동 다운로드</h3>
+            <p>
+              간병인이 교대되거나 가족이 환자를 이어받을 때 생기는 기록 단절을 원천 차단합니다. 
+              시간대별 <strong>자세 관리 내역과 상처 드레싱 기록</strong>이 타임라인으로 누적되며, 
+              보호자 공유 및 요양기관 제출용 <strong>7일 관리기록지 PDF(ReportLab 기반)</strong>를 원클릭으로 출력할 수 있습니다.
+            </p>
+
+            <ul class="showcase-feature-list">
+              <li class="showcase-feature-item">
+                <div class="showcase-feature-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="12" y1="18" x2="12" y2="12"/>
+                    <line x1="9" y1="15" x2="15" y2="15"/>
+                  </svg>
+                </div>
+                <div class="showcase-feature-content">
+                  <strong>7일 관리기록지 PDF 1초 자동 생성</strong>
+                  <span>주간 체위 변경 이행률, 환부 사진 변화, 드레싱 일지가 깔끔한 PDF 보고서로 즉시 다운로드됩니다.</span>
+                </div>
+              </li>
+
+              <li class="showcase-feature-item">
+                <div class="showcase-feature-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                  </svg>
+                </div>
+                <div class="showcase-feature-content">
+                  <strong>시간대별 자세 + 상처 관리 타임라인</strong>
+                  <span>14:52 오른쪽 누움(주의) → 14:54 어깨 드레싱 → 20:44 정상 정렬 등 실시간 이력이 한눈에 정리됩니다.</span>
+                </div>
+              </li>
+
+              <li class="showcase-feature-item">
+                <div class="showcase-feature-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                </div>
+                <div class="showcase-feature-content">
+                  <strong>간병인 교대 전용 인수인계 모드</strong>
+                  <span>교대 간병인이 환자의 오늘 상태와 다음 체위 일정을 직관적으로 파악할 수 있습니다.</span>
+                </div>
+              </li>
+            </ul>
+
+            <button class="btn btn-outline open-pilot-modal">기록 관리 기능 샘플 신청</button>
+          </div>
+
+          <!-- Overlapping Composition: Realistic A4 Sheet + Mobile Phone Mockup -->
+          <div class="showcase-img-col">
+            <div class="showcase-overlap-composition">
+              <!-- A4 Realistic Report Sheet in Background -->
+              <div class="a4-sheet-card">
+                <div class="a4-sheet-tag">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                  </svg>
+                  <span>자동 생성 A4 7일 관리기록지 (공단평가 제출용)</span>
+                </div>
+                <div class="a4-sheet-preview">
+                  <img src="assets/app-report-a4.png" alt="욕창예방 자세변경 7일 관리기록지 A4 서식">
+                </div>
+              </div>
+
+              <!-- Overlapping Phone Mockup in Foreground -->
+              <div class="overlapping-phone-card">
+                <div class="dual-phone-tag">실시간 앱 타임라인</div>
+                <div class="phone-mockup-screen">
+                  <img src="assets/app-timeline-2.png" alt="시간대별 자세 및 상처 관리 기록 타임라인 화면">
+                </div>
+              </div>
+
+              <!-- Floating Bridge Indicator -->
+              <div class="floating-bridge-badge">
+                <div class="bridge-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="13 17 18 12 13 7"/>
+                    <polyline points="6 17 11 12 6 7"/>
+                  </svg>
+                </div>
+                <div class="bridge-text">
+                  <strong>원클릭 A4 PDF 즉시 출력</strong>
+                  <span>앱 기록 ➔ 공단 양식 자동 매핑</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive AI Posture & Wound Simulator Playground -->
+    <section class="scanner-section" id="scanner-demo">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-badge">
+            <span class="dot"></span>
+            <span>Interactive AI Simulator</span>
+          </div>
+          <h2 class="section-title">실시간 AI 자세 분석 & 체위 코칭 시뮬레이터</h2>
+          <p class="section-desc">
+            환자의 체위 사례를 선택하고, MediaPipe 관절 추정 및 기울기 각도 측정, 자동 간병 기록 생성을 직접 체험해 보세요.
+          </p>
+        </div>
+
+        <div class="scanner-card">
+          <!-- Control Bar -->
+          <div class="scanner-header-bar">
+            <div class="scanner-status">
+              <div class="status-indicator"></div>
+              <span>MediaPipe Pose & Wound Engine (Active)</span>
+            </div>
+
+            <div class="case-selector-group">
+              <span style="font-size: 0.82rem; color: #94A3B8; margin-right: 4px;">사례 선택:</span>
+              <button class="case-btn active" data-case="case1" id="case-btn-1">우측 30° 측위 (정상)</button>
+              <button class="case-btn" data-case="case2" id="case-btn-2">바로 누움 (골반 쏠림)</button>
+              <button class="case-btn" data-case="case3" id="case-btn-3">좌측 측위 (드레싱)</button>
+              <button class="case-btn" data-case="case4" id="case-btn-4">발뒤꿈치 부유 (DTI)</button>
+            </div>
+          </div>
+
+          <!-- Body Grid -->
+          <div class="scanner-body-grid">
+            <!-- Left: Viewport Canvas -->
+            <div class="scanner-viewport-panel">
+              <div class="viewport-canvas-wrapper">
+                <canvas id="scanner-canvas"></canvas>
+                <div class="scanner-laser-line" id="scanner-laser"></div>
+              </div>
+
+              <!-- Viewport Bottom Controls -->
+              <div class="viewport-toolbar">
+                <div class="layer-toggles">
+                  <span style="font-size: 0.78rem; color: #94A3B8; margin-right: 4px;">시각화 칩:</span>
+                  <button class="toggle-chip active" data-layer="skeleton">
+                    <span class="chip-dot blue"></span>MediaPipe 관절 스켈레톤
+                  </button>
+                  <button class="toggle-chip active" data-layer="angle">
+                    <span class="chip-dot green"></span>측위 기울기 각도 (30°)
+                  </button>
+                  <button class="toggle-chip active" data-layer="pressure">
+                    <span class="chip-dot yellow"></span>압력 분산 히트맵
+                  </button>
+                  <button class="toggle-chip active" data-layer="wound">
+                    <span class="chip-dot red"></span>관찰 환부 마커
+                  </button>
+                  <button class="toggle-chip active" data-layer="grid">신체선열 격자</button>
+                </div>
+
+                <button class="btn btn-primary btn-sm" id="run-scan-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                    <path d="M3 3v5h5"/>
+                    <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+                    <path d="M16 21h5v-5"/>
+                  </svg>
+                  <span>AI 자세·체위 재분석</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Right: Real-time Analysis Results -->
+            <div class="scanner-analysis-panel">
+              <div class="analysis-header-title">
+                <div>
+                  <div class="stage-badge-large" id="res-stage-badge">
+                    <span class="chip-dot green"></span> 정상 정렬 (30° 측위)
+                  </div>
+                  <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 4px;" id="res-stage-desc">
+                    어깨-골반 30° 기울기 유지, 천골부 압력 85% 분산
+                  </div>
+                </div>
+                <div class="confidence-rate" id="res-confidence">AI 판독 신뢰도 99.4%</div>
+              </div>
+
+              <!-- Measurement Metrics -->
+              <div class="metric-cards-grid">
+                <div class="metric-card">
+                  <div class="metric-card-label">측위 기울기 각도</div>
+                  <div class="metric-card-val"><span id="res-angle">29.5°</span></div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-card-label">돌출부 압력 분산</div>
+                  <div class="metric-card-val"><span id="res-pressure">85%</span></div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-card-label">체위 변경 주기</div>
+                  <div class="metric-card-val"><span id="res-schedule">2시간 설정</span></div>
+                </div>
+              </div>
+
+              <!-- Real-time Coaching Guide -->
+              <div class="posture-coaching-box">
+                <div class="posture-coaching-header">
+                  <span id="res-coaching-status">정상 정렬 (AI 검증 완료)</span>
+                  <span>스마트 코칭</span>
+                </div>
+                <div class="posture-coaching-desc" id="res-coaching-desc">
+                  01:43:50 후 [바로 누움] 추천 (우측 30° 측위 지지 필로우 위치 양호)
+                </div>
+              </div>
+
+              <!-- Auto Generated Handover Note -->
+              <div class="soap-note-card">
+                <div class="soap-note-header">
+                  <div class="soap-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                      <line x1="16" y1="13" x2="8" y2="13"/>
+                      <line x1="16" y1="17" x2="8" y2="17"/>
+                    </svg>
+                    <span>자동 생성 간병 인수인계 기록</span>
+                  </div>
+                  <button class="copy-soap-btn" id="copy-soap-btn">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                    <span>기록 복사</span>
+                  </button>
+                </div>
+                <div class="soap-content" id="res-soap-content">데이터 로딩 중...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Features Section -->
+    <section class="features-section" id="features">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-badge">
+            <span class="dot"></span>
+            <span>Key Features</span>
+          </div>
+          <h2 class="section-title">욕창 예방과 돌봄을 위한 6대 핵심 기능</h2>
+          <p class="section-desc">
+            간병인과 가족 보호자가 매일 겪는 체위 변경의 번거로움과 기록의 누락을 스마트하게 해결합니다.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 14 14"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">2시간 순환형 체위 스케줄러</h3>
+            <p class="feature-card-desc">
+              환자의 상태에 맞춘 2시간/2.5시간/3시간 주기 설정과 다음 체위(좌측 ⇄ 우측 ⇄ 앙와위) 자동 알림을 제공합니다.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">MediaPipe 신체선열 코칭</h3>
+            <p class="feature-card-desc">
+              스마트폰 카메라로 촬영된 환자의 관절 좌표를 추정하여 30° 측위 각도 유지 여부와 골반 틀어짐을 실시간 분석합니다.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">AI 상처 단계 판별 & 드레싱 추천</h3>
+            <p class="feature-card-desc">
+              환부 사진 촬영 시 Stage 1~4 단계 자동 판별과 상처 상태에 맞는 적합한 드레싱 재료 및 처치 가이드를 제공합니다.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="18" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">7일 관리기록지 PDF 다운로드</h3>
+            <p class="feature-card-desc">
+              주간 체위 변경 이행률과 환부 사진 기록을 ReportLab 기반의 깔끔한 PDF 보고서로 1초 만에 자동 생성합니다.
+            </p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">시간대별 통합 돌봄 타임라인</h3>
+            <p class="feature-card-desc">
+              체위 변경 시간, AI 정상 정렬 검증 여부, 환부 드레싱 교체 내역을 시간 순서대로 일목요연하게 기록합니다.
+            </p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">돌봄 인수인계 원클릭 리포트</h3>
+            <p class="feature-card-desc">
+              간병인 교대 및 가족 보호자 인계 시 당일 체위 이행 상태와 특이사항을 한눈에 공유하여 돌봄 공백을 방지합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Development Roadmap Section -->
+    <section class="roadmap-section" id="roadmap">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-badge">
+            <span class="dot"></span>
+            <span>Product Roadmap</span>
+          </div>
+          <h2 class="section-title">메디소어 서비스 로드맵</h2>
+          <p class="section-desc">
+            요양 현장과 보호자의 실제 피드백을 바탕으로 매주 더 편리한 돌봄 기능을 선보입니다.
+          </p>
+        </div>
+
+        <div class="roadmap-timeline">
+          <!-- Phase 1 -->
+          <div class="roadmap-card done">
+            <div>
+              <div class="roadmap-phase-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Phase 1 (완료)</span>
+              </div>
+              <h3 class="roadmap-card-title">체위 코칭 & AI 상처 판별 코어</h3>
+              <p class="roadmap-card-desc">
+                2시간 순환 스케줄러, MediaPipe 관절 각도 측정 및 상처 단계 분류 알고리즘 구축
+              </p>
+            </div>
+            <ul class="roadmap-items-list">
+              <li class="roadmap-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>순환형 체위 타이머 & 푸시 알림</span>
+              </li>
+              <li class="roadmap-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>어깨·골반 30° 신체선열 분석 엔진</span>
+              </li>
+              <li class="roadmap-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>7일 관리기록지 PDF 출력 기능</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="roadmap-card in-progress active-phase">
+            <div>
+              <div class="roadmap-phase-tag">
+                <span class="dot" style="width: 6px; height: 6px; background: var(--primary);"></span>
+                <span>Phase 2 (진행 중)</span>
+              </div>
+              <h3 class="roadmap-card-title">요양기관 파일럿 & 인수인계 고도화</h3>
+              <p class="roadmap-card-desc">
+                요양원 및 주야간보호센터 현장 실증 테스트 및 간병인 교대 리포트 기능 최적화
+              </p>
+            </div>
+            <ul class="roadmap-items-list">
+              <li class="roadmap-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3898FF" stroke-width="2.5"><circle cx="12" cy="12" r="10"/></svg>
+                <span>요양기관 다인실 환자 통합 대시보드</span>
+              </li>
+              <li class="roadmap-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3898FF" stroke-width="2.5"><circle cx="12" cy="12" r="10"/></svg>
+                <span>비전문 간병인을 위한 음성 체위 가이드</span>
+              </li>
+              <li class="roadmap-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3898FF" stroke-width="2.5"><circle cx="12" cy="12" r="10"/></svg>
+                <span>보호자 안심 알림톡 연동</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="roadmap-card planned">
+            <div>
+              <div class="roadmap-phase-tag">
+                <span>Phase 3 (예정)</span>
+              </div>
+              <h3 class="roadmap-card-title">스마트 센서 매트리스 연동</h3>
+              <p class="roadmap-card-desc">
+                IoT 압력 센서 매트리스와 실시간 연동하여 무자각 체위 상태 자동 감지
+              </p>
+            </div>
+            <ul class="roadmap-items-list">
+              <li class="roadmap-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+                <span>실시간 체압 분포 맵 자동 동기화</span>
+              </li>
+              <li class="roadmap-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+                <span>낙상 위험 및 야간 이상 움직임 감지</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pilot Partnership CTA Section -->
+    <section class="cta-section" id="contact">
+      <div class="container">
+        <div class="cta-box">
+          <h2 class="cta-title">
+            요양기관과 가정의 욕창 관리,<br>
+            메디소어로 더 쉽고 안전해집니다
+          </h2>
+          <p class="cta-desc">
+            요양원, 요양병원, 주야간보호센터, 개인 간병인 및 가족 보호자를 위한<br>
+            무료 시연 및 14일 체험 프로그램을 신청해 보세요.
+          </p>
+          <button class="btn btn-primary btn-lg open-pilot-modal" id="bottom-pilot-btn">
+            <span>무료 체험 및 도입 문의하기</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer (1.5x Logo Size) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <img src="assets/medisore-logo.png" alt="Medisore 메디소어">
+          <p class="footer-brand-desc">
+            메디소어(Medisore)는 AI 기술을 통해 요양기관과 간병인, 가족 보호자가 함께하는 쉬운 욕창 예방 및 자세 관리 플랫폼입니다.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">주요 기능</h4>
+          <ul class="footer-links-list">
+            <li><a href="#posture-coaching" class="footer-link">MediaPipe 자세 코칭</a></li>
+            <li><a href="#wound-analysis" class="footer-link">AI 욕창 단계 판별</a></li>
+            <li><a href="#wound-analysis" class="footer-link">맞춤 처치 가이드</a></li>
+            <li><a href="#care-records" class="footer-link">7일 관리기록지 PDF</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">서비스 안내</h4>
+          <ul class="footer-links-list">
+            <li><a href="#scanner-demo" class="footer-link">체험 시뮬레이터</a></li>
+            <li><a href="#features" class="footer-link">핵심 기능 소개</a></li>
+            <li><a href="#roadmap" class="footer-link">제품 개발 로드맵</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">도입 및 문의</h4>
+          <ul class="footer-links-list">
+            <li><a href="#contact" class="footer-link open-pilot-modal">요양기관 무료 체험</a></li>
+            <li><a href="#contact" class="footer-link open-pilot-modal">개인 간병인·가족 문의</a></li>
+            <li><span style="color: #64748B;">이메일: contact@medisore.ai</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          © 2026 Medisore (메디소어). All Rights Reserved.
+        </div>
+        <div style="display: flex; gap: 20px;">
+          <a href="#" style="color: #64748B;">개인정보처리방침</a>
+          <a href="#" style="color: #64748B;">이용약관</a>
+          <a href="#" style="color: #64748B;">돌봄 가이드라인</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Pilot / Inquiry Modal Dialog (Caregiver & Nursing Home Friendly) -->
+  <div class="modal-backdrop" id="pilot-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>무료 체험 및 도입 문의</h3>
+        <button class="modal-close-btn close-modal-btn" aria-label="모달 닫기">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form id="pilot-inquiry-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="inst-name">신청자/기관명 *</label>
+              <input type="text" id="inst-name" class="form-input" placeholder="예: 햇살요양원 / 개인 보호자" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="inst-type">구분 *</label>
+              <select id="inst-type" class="form-select" required>
+                <option value="">선택해주세요</option>
+                <option value="nursing_home">요양원 / 요양병원</option>
+                <option value="day_care">주야간보호센터 / 방문요양</option>
+                <option value="caregiver">전문 간병인 / 간병협회</option>
+                <option value="family">가족 보호자 / 개인</option>
+                <option value="other">기타 기관</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="user-name">담당자 성함 *</label>
+              <input type="text" id="user-name" class="form-input" placeholder="예: 김민수" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="user-role">직책/관계 *</label>
+              <input type="text" id="user-role" class="form-input" placeholder="예: 원장, 간호조무사, 보호자" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="user-phone">연락처 *</label>
+              <input type="tel" id="user-phone" class="form-input" placeholder="010-0000-0000" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="user-email">이메일 *</label>
+              <input type="email" id="user-email" class="form-input" placeholder="name@domain.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="user-message">문의 및 관심 기능</label>
+            <textarea id="user-message" class="form-textarea" rows="3" placeholder="돌봄 환자 수, 2시간 체위 알림, AI 욕창 단계 판별 및 7일 관리기록지 PDF 도입 희망 시기를 작성해 주세요."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            <span>무료 체험 신청서 제출</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/scanner-demo.js"></script>
+</body>
+</html>
